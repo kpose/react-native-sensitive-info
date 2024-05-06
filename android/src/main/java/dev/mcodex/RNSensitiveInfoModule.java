@@ -694,7 +694,7 @@ public class RNSensitiveInfoModule extends ReactContextBaseJavaModule {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Key secretKey = ((KeyStore.SecretKeyEntry) mKeyStore.getEntry(KEY_ALIAS, null)).getSecretKey();
-            c = Cipher.getInstance(AES_GCM);
+            c = Cipher.getInstance(AES_DEFAULT_TRANSFORMATION);
             c.init(Cipher.ENCRYPT_MODE, secretKey, new GCMParameterSpec(128, FIXED_IV));
         } else {
             PublicKey publicKey = ((KeyStore.PrivateKeyEntry) mKeyStore.getEntry(KEY_ALIAS, null)).getCertificate()
@@ -734,7 +734,7 @@ public class RNSensitiveInfoModule extends ReactContextBaseJavaModule {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Key secretKey = ((KeyStore.SecretKeyEntry) mKeyStore.getEntry(KEY_ALIAS, null)).getSecretKey();
-            c = Cipher.getInstance(AES_GCM);
+            c = Cipher.getInstance(AES_DEFAULT_TRANSFORMATION);
             c.init(Cipher.DECRYPT_MODE, secretKey, new GCMParameterSpec(128, FIXED_IV));
         } else {
             PrivateKey privateKey = ((KeyStore.PrivateKeyEntry) mKeyStore.getEntry(KEY_ALIAS, null)).getPrivateKey();
