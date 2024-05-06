@@ -403,9 +403,9 @@ public class RNSensitiveInfoModule extends ReactContextBaseJavaModule {
                 KEY_ALIAS_AES,
                 KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT);
 
-        builder.setBlockModes(KeyProperties.BLOCK_MODE_CBC)
+        builder.setBlockModes(KeyProperties.BLOCK_MODE_GCM)
                 .setKeySize(256)
-                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
+                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
                 // forces user authentication with fingerprint
                 .setUserAuthenticationRequired(true);
 
