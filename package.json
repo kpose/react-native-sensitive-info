@@ -9,6 +9,7 @@
   "scripts": {
     "build": "rimraf -rf build && rollup -c",
     "prepublishOnly": "yarn build",
+    "prepare": "yarn build",
     "localPublish": "yalc publish && cd example && yalc add react-native-sensitive-info --yarn && cd .."
   },
   "author": {
